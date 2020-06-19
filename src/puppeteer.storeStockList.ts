@@ -9,7 +9,7 @@ const STARBUCKS_LOGIN_URL = 'https://www.starbucks.co.kr/login/login.do';
 const STARBUCKS_BAG_COUNT_URL = 'https://www.starbucks.co.kr/store/getStoreStockList.do';
 
 const userLogin = async (email: string, password: string) => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
 
   page.on('dialog', async dialog => {
